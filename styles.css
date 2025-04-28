@@ -151,7 +151,7 @@ h2::after {
 
 /* Contact */
 #contact a {
-    color: #004e92;
+    color: #5f26e4;
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
@@ -188,4 +188,92 @@ h2::after {
 }
 .modal-content {
     border-radius: 10px;
+}
+body {
+    background-color: #2ca482;
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;
+}
+header.hero {
+    background-color: #18699b;
+    background-size: cover;
+    background-position: center;
+    color: white; 
+}
+footer{
+    background-color: #222;
+}
+/* Door Opening Animation */
+#door-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000; /* background color while doors opening */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Fade out effect */
+}
+
+/* Door Styling */
+.door {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #222; /* door color */
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.5s ease; /* sliding effect */
+}
+
+.left-door {
+    left: 0;
+    border-right: 2px solid #fff;
+}
+
+.right-door {
+    right: 0;
+    border-left: 2px solid #fff;
+}
+
+/* Text inside the door */
+.welcome-text {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0.8; /* Make it slightly transparent */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animation for the door opening */
+#door-overlay.open .left-door {
+    transform: translateX(-100%);
+}
+
+#door-overlay.open .right-door {
+    transform: translateX(100%);
+}
+
+/* Fade-out animation for the door */
+#door-overlay.open {
+    opacity: 0; /* Door fades out as it opens */
+}
+
+/* Fade-in animation for text */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 2;
+    }
 }
